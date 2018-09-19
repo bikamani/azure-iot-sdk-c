@@ -11,7 +11,8 @@ phases:
   steps:
     - script: 'git submodule update --init --recursive'
     - script: 'export OPENSSL_ia32cap=0x00000000'
-    - script: 'sudo ./jenkins/ubuntu1604_c.sh'      
+    - script: 'sudo ./jenkins/ubuntu1604_c.sh'
+    displayName: 'build'    
     env:
       IOTHUB_CONNECTION_STRING: $(C-LINUX-DF-IOTHUB-CONNECTION-STRING)
       IOTHUB_EVENTHUB_CONNECTION_STRING: $(C-LINUX-DF-IOTHUB-EVENTHUB-CONNECTION-STRING)
