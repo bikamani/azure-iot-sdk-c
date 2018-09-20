@@ -225,7 +225,7 @@ phases:
 - phase: raspberrypi
   variables:
     _PREVIEW_VSTS_DOCKER_IMAGE: "aziotbld/vsts-raspberrypi-c"
-  queue: Hosted Linux Preview
+  queue: aziotbld-lin02
   displayName: 'raspberrypi'
   steps:
   - script: |
@@ -241,7 +241,7 @@ phases:
 - phase: clang
   variables:
     _PREVIEW_VSTS_DOCKER_IMAGE: "aziotbld/linux-clang:18.04"
-  queue: Hosted Linux Preview
+  queue: aziotbld-lin02
   displayName: 'clang'
   steps:
   - script: |
@@ -271,7 +271,7 @@ phases:
 - phase: ubuntu1604
   variables:
     _PREVIEW_VSTS_DOCKER_IMAGE: "aziotbld/linux-c-ubuntu-16.04"
-  queue: Hosted Ubuntu 1604
+  queue: aziotbld-lin02
   displayName: 'ubuntu1604'
   steps:
   - script: |
@@ -300,7 +300,7 @@ phases:
 - phase: debian
   variables:
     _PREVIEW_VSTS_DOCKER_IMAGE: "aziotbld/c-debian"
-  queue: Hosted Linux Preview
+  queue: aziotbld-lin02
   displayName: 'debian'
   steps:
   - script: |
