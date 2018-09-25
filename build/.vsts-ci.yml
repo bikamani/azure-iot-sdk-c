@@ -270,7 +270,7 @@ phases:
     condition: always()
 - phase: ubuntu1604
   variables:
-    _PREVIEW_VSTS_DOCKER_IMAGE: "aziotbld/linux-c-ubuntu-16.04"
+    _PREVIEW_VSTS_DOCKER_IMAGE: "aziotbld/linux-c-ubuntu"
   queue: aziotbld-lin02
   displayName: 'ubuntu1604'
   steps:
