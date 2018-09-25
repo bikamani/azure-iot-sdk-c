@@ -155,6 +155,8 @@ then
   echo "MAKE_CORES=$MAKE_CORES"
   echo "Starting run..."
   date
+  echo "#### print env"
+  env
   make --jobs=$MAKE_CORES
   echo "completed run..."
   date
