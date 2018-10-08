@@ -212,7 +212,7 @@ phases:
     condition: always()
 - phase: raspberrypi
   variables:
-    _PREVIEW_VSTS_DOCKER_IMAGE: "aziotbld/raspberrypi-c"
+    _PREVIEW_VSTS_DOCKER_IMAGE: "aziotbld/vsts-raspberrypi-c"
   queue: aziotbld-lin02
   displayName: 'raspberrypi'
   steps:
