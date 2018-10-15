@@ -199,24 +199,24 @@ if %MAKE_NUGET_PKG% == yes (
 if %MAKE_NUGET_PKG% == yes (
     if %make%==yes (
         echo ***Building all configurations***
-        msbuild /m %cmake-root%\cmake\iotsdk_win32\azure_iot_sdks.sln /p:Configuration=Release
+        msbuild /m %cmake-root%\cmake\iotsdk_win32\azure_iot_sdks.sln /p:Configuration=Release -fl
         if !ERRORLEVEL! neq 0 exit /b !ERRORLEVEL!
-        msbuild /m %cmake-root%\cmake\iotsdk_win32\azure_iot_sdks.sln /p:Configuration=Debug
+        msbuild /m %cmake-root%\cmake\iotsdk_win32\azure_iot_sdks.sln /p:Configuration=Debug -fl
         if not !ERRORLEVEL!==0 exit /b !ERRORLEVEL!
 
-        msbuild /m %cmake-root%\cmake\iotsdk_x64\azure_iot_sdks.sln /p:Configuration=Release
+        msbuild /m %cmake-root%\cmake\iotsdk_x64\azure_iot_sdks.sln /p:Configuration=Release -fl
         if !ERRORLEVEL! neq 0 exit /b !ERRORLEVEL!
-        msbuild /m %cmake-root%\cmake\iotsdk_x64\azure_iot_sdks.sln /p:Configuration=Debug
+        msbuild /m %cmake-root%\cmake\iotsdk_x64\azure_iot_sdks.sln /p:Configuration=Debug -fl
         if not !ERRORLEVEL!==0 exit /b !ERRORLEVEL!
 
-        msbuild /m %cmake-root%\cmake\iotsdk_arm\azure_iot_sdks.sln /p:Configuration=Release
+        msbuild /m %cmake-root%\cmake\iotsdk_arm\azure_iot_sdks.sln /p:Configuration=Release -fl
         if !ERRORLEVEL! neq 0 exit /b !ERRORLEVEL!
-        msbuild /m %cmake-root%\cmake\iotsdk_arm\azure_iot_sdks.sln /p:Configuration=Debug
+        msbuild /m %cmake-root%\cmake\iotsdk_arm\azure_iot_sdks.sln /p:Configuration=Debug -fl
         if not !ERRORLEVEL!==0 exit /b !ERRORLEVEL!
     )
 ) else (
     if %make%==yes (
-        msbuild /m azure_iot_sdks.sln
+        msbuild /m azure_iot_sdks.sln -fl
         if !ERRORLEVEL! neq 0 exit /b !ERRORLEVEL!
 
         if %build-platform% neq arm (
@@ -230,7 +230,7 @@ popd
 
 if %build_traceabilitytool%==1 (
     rem invoke the traceabilitytool here instead of the second build step in Jenkins windows_c job
-    msbuild /m %build-root%\tools\traceabilitytool\traceabilitytool.sln
+    msbuild /m %build-root%\tools\traceabilitytool\traceabilitytool.sln -fl
     if !ERRORLEVEL! neq 0 exit /b !ERRORLEVEL!
 )
 
@@ -279,6 +279,6 @@ if "%~1" neq "Build" set "build-target=/t:%~1"
 if "%~3" neq "" set build-config=%~3
 if "%~4" neq "" set build-platform=%~4
 
-msbuild /m %build-target% "/p:Configuration=%build-config%;Platform=%build-platform%" %2
+msbuild /m %build-target% "/p:Configuration=%build-config%;Platform=%build-platform%" %2 -fl
 if not !ERRORLEVEL!==0 exit /b !ERRORLEVEL!
 goto :eof
